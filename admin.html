@@ -1,0 +1,106 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Welcome, Admin</h2>
+    <div class="d-flex justify-content-between mb-3">
+      <button class="btn btn-secondary" id="logoutBtn">Logout</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">Add Product</button>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addCategoryModal">Add Category</button>
+      <button class="btn btn-info" onclick="window.location.href='dashboard.html'">Manage Users</button>
+    </div>
+
+    <h4>Products</h4>
+    <div class="row" id="productsContainer"></div>
+
+    <hr>
+
+    <h4>Categories</h4>
+    <ul class="list-group mb-4" id="categoriesList"></ul>
+
+    <hr>
+
+    <h4>Orders</h4>
+    <div id="admin-view">
+      <div id="admin-orders-container" class="mt-3"></div>
+    </div>
+  </div>
+
+  <!-- Add Product Modal -->
+  <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="addProductForm" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control mb-2" id="productName" placeholder="Name" required>
+          <input type="text" class="form-control mb-2" id="productImage" placeholder="Image URL" required>
+          <select class="form-control mb-2" id="productCategory" required></select>
+          <input type="number" class="form-control mb-2" id="productPrice" placeholder="Price" required min="0" step="0.01">
+          <textarea class="form-control mb-2" id="productDesc" placeholder="Description"></textarea>
+          <input type="number" class="form-control mb-2" id="productStock" placeholder="Stock Quantity" required min="0">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Category Modal -->
+  <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="addCategoryForm" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control mb-2" id="categoryName" placeholder="Category Name" required>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Product Modal -->
+  <div class="modal fade" id="editProductModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="editProductForm" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="editProductId">
+          <input type="text" class="form-control mb-2" id="editProductName" required>
+          <input type="text" class="form-control mb-2" id="editProductImage" required>
+          <select class="form-control mb-2" id="editProductCategory" required></select>
+          <input type="number" class="form-control mb-2" id="editProductPrice" required min="0" step="0.01">
+          <textarea class="form-control mb-2" id="editProductDesc"></textarea>
+          <input type="number" class="form-control mb-2" id="editProductStock" required min="0">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

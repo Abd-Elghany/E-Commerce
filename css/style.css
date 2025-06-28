@@ -1,0 +1,30 @@
+.order-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  .admin-order {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+  .rating {
+    color: #ffc107;
+    margin-bottom: 5px;
+  }
+  
+  .rating i {
+    margin-right: 2px;
+  }
+  
+  .rate-star {
+    color: #ddd;
+    margin-right: 5px;
+    transition: color 0.2s;
+  }
+  
+  .rate-star:hover {
+    color: #ffc107;
+  }
